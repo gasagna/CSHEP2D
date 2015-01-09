@@ -1,1 +1,7 @@
-A Julia wrapper for the Toms algorithm 790
+A Julia wrapper for the Toms Algorithm 790. This package performs cubic interpolation of scattered 2D data, using a Shepard method developed by Robert Renka.
+It also feature evaluation of gradient and Hessian of the interpolant.
+
+Links
+-----
+http://dl.acm.org/citation.cfm?id=305737
+http://www.netlib.org/toms-2014-06-10/
