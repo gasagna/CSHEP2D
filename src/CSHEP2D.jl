@@ -1,7 +1,7 @@
 module CSHEP2D
 
 const libcshep2d= joinpath(dirname(@__FILE__), "../deps/src/libcshep2d.so")
-if (dlopen_e(libcshep2d) == C_NULL)
+if (Libdl.dlopen_e(libcshep2d) == C_NULL)
     error("CSHEP2D not properly installed. Run Pkg.build(\"CSHEP2D\")")
 end
 
@@ -27,7 +27,7 @@ function CubicShepard2DInterpolator(x::Vector{Float64}, y::Vector{Float64}, z::V
 	length(x) == length(y) == length(z) || error("input vectors must be same size")
 	# define all parameters of the call
 	n = length(x)
-	nr = int(sqrt(n/3)) + 1
+	nr = round(Int, sqrt(n/3)) + 1
 	lcell = zeros(Int64, nr*nr)
 	lnext = zeros(Int64, n)
 	xmin = Float64[0]
